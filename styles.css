@@ -54,7 +54,7 @@
     border: 1px solid blue;
 }
 .story{
-    margin-top: -450px;
+    margin-top: -550px;
     width: 1000px;
     margin-left: 250px;
     font-family: sans-serif;
@@ -63,4 +63,5 @@
 
 .highlight {
     text-decoration: underline;
+    color: red;
   }
