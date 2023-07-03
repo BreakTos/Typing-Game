@@ -5,7 +5,14 @@ async function getStory(){
     const response = await fetch('https://shortstories-api.onrender.com/');
     const data = await response.json();
     x = data.story;
+    if(x.indexOf('"')!=-1) {
+        x=removeNonAlphabetic(x);
+    }
+     
 }
+function removeNonAlphabetic(str) {
+    return str.replace(/[^a-zA-Z\s]/g, '');
+  }
 function printStory(){
     var newStory=document.createElement('div');
     newStory.textContent=x;
