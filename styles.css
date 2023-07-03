@@ -1,0 +1,28 @@
+.all{
+    background-color: aliceblue;
+}
+.pressed{
+    background-color:greenyellow;
+}
+.keyboard{
+    height: 220px;
+    margin-top: 400px;
+    width: 600px;
+    margin-left: 500px;
+    padding-top: 10px;
+    background-color: violet;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.rows{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    margin-bottom: 10px;
+}
+.button{
+    height: 50px;
+    width: 50px;
+}
