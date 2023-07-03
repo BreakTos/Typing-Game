@@ -45,11 +45,17 @@ function highlightNext(){
     return xx[idx-2];
 }   
 
-let score=0;
+var score=1;
+var temp=0;
 function check(event){
     var key = event.key;
     let wordWas=highlightNext();
-    if(key==wordWas) score++;
+    if(key==wordWas) temp++;
+    if(wordWas.trim() === ''){
+        let tmp=idx;
+        if(temp>=1) score++;
+        temp=0;
+    }
      console.log(score);
     // console.log(wordWas);
     // console.log(key);
@@ -60,4 +66,33 @@ function check(event){
     keys.forEach(ch => {
         if(ch==key) addColor(buttons[keys.indexOf(ch)]);  
     });
+}
+// clock
+window.addEventListener("load", startStopwatch);
+
+// Start the stopwatch function
+function startStopwatch() {
+  var startTime = new Date().getTime();
+  var stopwatchElement = document.getElementById("stopwatch");
+  
+  // Update the stopwatch time every second
+  var timer = setInterval(updateStopwatch, 1000);
+  
+  function updateStopwatch() {
+    var currentTime = new Date().getTime();
+    var elapsedTime = currentTime - startTime;
+    
+    // Convert elapsed time to minutes and seconds
+    var minutes = Math.floor(elapsedTime / 60000);
+    var seconds = Math.floor((elapsedTime % 60000) / 1000);
+    
+    // Display the stopwatch time
+    stopwatchElement.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    
+    // Stop the stopwatch after 30 seconds
+    if (elapsedTime >= 10000) {
+      clearInterval(timer);
+      alert("Score: " + score);
+    }
+  }
 }
