@@ -60,3 +60,7 @@
     font-family: sans-serif;
     font-size: large;
 }
+
+.highlight {
+    text-decoration: underline;
+  }
