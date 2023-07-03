@@ -1,10 +1,10 @@
 var buttons = document.querySelectorAll("button");
  
 function addColor(button){
-    buttons.forEach(element => {
-        element.classList.remove("pressed");
-    });
     button.classList.add("pressed");
+    setTimeout(function() {
+        button.classList.remove("pressed");
+      }, 100);
 }
 
 document.addEventListener("keypress",check);
@@ -17,5 +17,6 @@ function check(event){
 
     keys.forEach(ch => {
         if(ch==key) addColor(buttons[keys.indexOf(ch)]);
+        
     });
 }

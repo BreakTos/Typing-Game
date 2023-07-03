@@ -3,9 +3,10 @@
 }
 .pressed{
     background-color:greenyellow;
+    transform: translateY(2px);
 }
 .keyboard{
-    height: 220px;
+    height: 240px;
     margin-top: 400px;
     width: 600px;
     margin-left: 500px;
@@ -27,4 +28,9 @@
     width: 50px;
     border-radius: 5%;
     margin: 1px;
+    transition: transform 0.2s;
+}
+.space{
+    width: 200px;
+    height: 40px;
 }
