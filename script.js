@@ -30,11 +30,21 @@ function addColor(button ){
 
 document.addEventListener("keypress",check);
 
+function highlightNext(){
+    var text=document.getElementById("text");
+    var xx=text.textContent;
+    var highlighted=xx.substring(0,idx)+ `<span class="highlight">${xx[idx]}</span>`+xx.substring(idx+1);
+    idx++;
+    text.innerHTML = highlighted;
+    return xx[idx-1];
+}   
 
-
+let score=0;
 function check(event){
     var key = event.key;
-    highlightNext();
+    let wordWas=highlightNext();
+    if(key==wordWas) score++;
+    console.log(score);
     var keys = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
             'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
             'z', 'x', 'c', 'v', 'b', 'n', 'm', ',','.',' '];
@@ -43,12 +53,3 @@ function check(event){
         if(ch==key) addColor(buttons[keys.indexOf(ch)]);  
     });
 }
-
-
-function highlightNext(){
-    var text=document.getElementById("text");
-    var xx=text.textContent;
-    var highlighted=xx.substring(0,idx)+ `<span class="highlight">${xx[idx]}</span>`+xx.substring(idx+1);
-    idx++;
-    text.innerHTML = highlighted;
-}   
