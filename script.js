@@ -55,9 +55,9 @@ function check(event){
     let wordWas=highlightNext();
     if(key==wordWas) {
       temp++;
-      correct.play();
+      playFirstSecond(correct);
     }else{
-      wrong.play();
+      playFirstSecond(wrong)
     }
     if(wordWas.trim() === ''){
         let tmp=idx;
@@ -75,6 +75,16 @@ function check(event){
         if(ch==key) addColor(buttons[keys.indexOf(ch)]);  
     });
 }
+
+// first one second
+function playFirstSecond(audio) {
+  audio.currentTime = 0; // Set the current time to the beginning of the audio
+  audio.play(); // Play the audio
+  setTimeout(function () {
+    audio.pause(); // Pause the audio after 1 second
+  }, 1000);
+}
+
 // clock
 window.addEventListener("load", startStopwatch);
 
