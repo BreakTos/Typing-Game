@@ -1,3 +1,3 @@
 # Typing-Game
-Press keys on your keyboard to see animations for now
+Works on pc , Reload if it gets stuck 
 https://breaktos.github.io/Typing-Game/
