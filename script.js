@@ -111,6 +111,7 @@ function startStopwatch() {
     if (elapsedTime >= 30000) {
       clearInterval(timer);
       alert("Score: " + score);
+      location.reload();
     }
   }
 }
