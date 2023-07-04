@@ -45,12 +45,20 @@ function highlightNext(){
     return xx[idx-2];
 }   
 
+var correct=new Audio("correct.mp3");
+var wrong=new Audio("wrong.mp3");
+
 var score=1;
 var temp=0;
 function check(event){
     var key = event.key;
     let wordWas=highlightNext();
-    if(key==wordWas) temp++;
+    if(key==wordWas) {
+      temp++;
+      correct.play();
+    }else{
+      wrong.play();
+    }
     if(wordWas.trim() === ''){
         let tmp=idx;
         if(temp>=1) score++;
@@ -90,7 +98,7 @@ function startStopwatch() {
     stopwatchElement.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
     
     // Stop the stopwatch after 30 seconds
-    if (elapsedTime >= 10000) {
+    if (elapsedTime >= 30000) {
       clearInterval(timer);
       alert("Score: " + score);
     }
